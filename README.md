@@ -12,7 +12,7 @@ Normal mode displays the the block light level reaching the block. The color rep
 
 LightLevel makes no attempt to determine if any condition other than light level is met for the block to be suitable for spawning mobs.
 
-![An image showing a preview of Normal mode.](https://github.com/Parzivail-Modding-Team/LightLevel/raw/master/media/default.png)
+![An image showing a preview of Normal mode.](https://github.com/MrSocks75/Lightlevel-Fabric/blob/master/media/default.png)
 
 ## Extended mode
 
@@ -20,7 +20,7 @@ Extended mode shares the same color scheme as Normal mode, however, the informat
 
 Extended mode is active when the debug overlay (`F3`) is shown.
 
-![An image showing a preview of Extended mode.](https://github.com/Parzivail-Modding-Team/LightLevel/raw/master/media/extended.png)
+![An image showing a preview of Extended mode.](https://github.com/MrSocks75/Lightlevel-Fabric/blob/master/media/extended.png)
 
 # Modpack usage
 
