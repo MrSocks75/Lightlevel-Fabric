@@ -5,11 +5,12 @@
 	"name": "Light Level",
 	"description": "Shows an ingame overlay with the light level for each block",
 	"authors": [
+		"MrSocks75",
 		"parzivail"
 	],
 	"contact": {
-		"homepage": "https://github.com/Parzivail-Modding-Team/LightLevel",
-		"sources": "https://github.com/Parzivail-Modding-Team/LightLevel"
+		"homepage": "https://github.com/MrSocks75/Lightlevel-Fabric",
+		"sources": "https://github.com/MrSocks75/Lightlevel-Fabric"
 	},
 	"license": "MIT",
 	"icon": "assets/lightlevel/icon.png",
