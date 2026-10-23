@@ -25,3 +25,7 @@ Extended mode is active when the debug overlay (`F3`) is shown.
 # Modpack usage
 
 Use this mod or the code however you want (within the license).
+
+# Shoutout
+
+Original repo was cloned years ago and only now have I had time to work on it. Shout out to Parzivail Modding Team for the original mod. 
