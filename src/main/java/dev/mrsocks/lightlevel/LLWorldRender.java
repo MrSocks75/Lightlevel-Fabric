@@ -1,4 +1,4 @@
-package com.parzivail.lightlevel;
+package dev.mrsocks.lightlevel;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderContext;
@@ -17,7 +17,8 @@ public class LLWorldRender
 
 	public static void collectSubmits(LevelRenderContext context)
 	{
-		if (!LightLevel.isEnabled())
+		var mode = LightLevel.getMode();
+		if (mode == LightLevel.Mode.OFF)
 			return;
 
 		var client = Minecraft.getInstance();
@@ -38,7 +39,7 @@ public class LLWorldRender
 
 		matrices.pushPose();
 
-		var showBothValues = client.getDebugOverlay().showDebugScreen();
+		var showBothValues = mode == LightLevel.Mode.ADVANCED;
 
 		var s = showBothValues ? 1 / 32f : 1 / 16f;
 

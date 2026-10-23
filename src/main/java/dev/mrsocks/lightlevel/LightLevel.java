@@ -1,4 +1,4 @@
-package com.parzivail.lightlevel;
+package dev.mrsocks.lightlevel;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
@@ -14,11 +14,18 @@ public class LightLevel implements ClientModInitializer
 	private static final String TOGGLE_KEYBIND = "key.lightlevel.toggle";
 	private static KeyMapping keyToggle;
 
-	private static boolean enabled;
-
-	public static boolean isEnabled()
+	public enum Mode
 	{
-		return enabled;
+		OFF,
+		BASIC,
+		ADVANCED
+	}
+
+	private static Mode mode = Mode.OFF;
+
+	public static Mode getMode()
+	{
+		return mode;
 	}
 
 	@Override
@@ -28,7 +35,7 @@ public class LightLevel implements ClientModInitializer
 		ClientTickEvents.END_CLIENT_TICK.register(client ->
 		{
 			while (keyToggle.consumeClick())
-				enabled = !enabled;
+				mode = Mode.values()[(mode.ordinal() + 1) % Mode.values().length];
 		});
 		LevelRenderEvents.COLLECT_SUBMITS.register(LLWorldRender::collectSubmits);
 	}

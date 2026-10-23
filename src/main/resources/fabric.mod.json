@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"client": [
-			"com.parzivail.lightlevel.LightLevel"
+			"dev.mrsocks.lightlevel.LightLevel"
 		]
 	},
 	"depends": {
