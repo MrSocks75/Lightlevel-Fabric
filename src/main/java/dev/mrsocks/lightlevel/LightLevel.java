@@ -12,7 +12,9 @@ public class LightLevel implements ClientModInitializer
 {
 	private static final KeyMapping.Category KEYBIND_CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("lightlevel", "category"));
 	private static final String TOGGLE_KEYBIND = "key.lightlevel.toggle";
+	private static final String SETTINGS_KEYBIND = "key.lightlevel.settings";
 	private static KeyMapping keyToggle;
+	private static KeyMapping keySettings;
 
 	public enum Mode
 	{
@@ -31,11 +33,17 @@ public class LightLevel implements ClientModInitializer
 	@Override
 	public void onInitializeClient()
 	{
+		LLConfig.load();
+
 		keyToggle = KeyMappingHelper.registerKeyMapping(new KeyMapping(TOGGLE_KEYBIND, InputConstants.KEY_F9, KEYBIND_CATEGORY));
+		keySettings = KeyMappingHelper.registerKeyMapping(new KeyMapping(SETTINGS_KEYBIND, InputConstants.KEY_F10, KEYBIND_CATEGORY));
 		ClientTickEvents.END_CLIENT_TICK.register(client ->
 		{
 			while (keyToggle.consumeClick())
 				mode = Mode.values()[(mode.ordinal() + 1) % Mode.values().length];
+
+			while (keySettings.consumeClick())
+				client.gui.setScreen(new LLConfigScreen(client.gui.screen()));
 		});
 		LevelRenderEvents.COLLECT_SUBMITS.register(LLWorldRender::collectSubmits);
 	}

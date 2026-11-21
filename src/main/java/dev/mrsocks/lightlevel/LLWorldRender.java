@@ -68,14 +68,14 @@ public class LLWorldRender
 					var blockLight = world.getBrightness(LightLayer.BLOCK, queryPos);
 					var skyLight = world.getBrightness(LightLayer.SKY, queryPos);
 
-					var color = 0xFFFFFF; // spawn never
+					var color = LLConfig.getColor(LLConfig.Category.SAFE); // spawn never
 
 					if (blockLight == 0)
 					{
 						if (skyLight == 0)
-							color = 0xFF0000; // Spawn at any time
+							color = LLConfig.getColor(LLConfig.Category.ALWAYS); // Spawn at any time
 						else
-							color = 0xFFFF00; // Spawn only at night
+							color = LLConfig.getColor(LLConfig.Category.NIGHT); // Spawn only at night
 					}
 
 					if (showBothValues)

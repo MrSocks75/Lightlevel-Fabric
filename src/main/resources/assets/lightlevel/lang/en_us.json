@@ -1,4 +1,10 @@
 {
   "key.category.lightlevel.category": "Light Level",
-  "key.lightlevel.toggle": "Toggle"
+  "key.lightlevel.toggle": "Toggle",
+  "key.lightlevel.settings": "Open Settings",
+  "lightlevel.config.title": "Light Level Colors",
+  "lightlevel.config.safe": "No spawns",
+  "lightlevel.config.night": "Night only",
+  "lightlevel.config.always": "Any time",
+  "lightlevel.config.reset": "Reset"
 }
