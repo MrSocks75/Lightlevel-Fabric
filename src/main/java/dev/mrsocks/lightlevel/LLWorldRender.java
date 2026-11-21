@@ -56,7 +56,7 @@ public class LLWorldRender
 				{
 					var queryPos = mutablePos.set(playerPos.getX() + x, playerPos.getY() + y, playerPos.getZ() + z);
 
-					if (!frustum.isVisible(new AABB(queryPos)) || !isTopSolid(world, queryPos.below(), player) || isTopSolid(world, queryPos, player))
+					if (!frustum.isVisible(new AABB(queryPos)) || !isValidSpawnSurface(world, queryPos.below()) || isTopSolid(world, queryPos, player))
 						continue;
 
 					matrices.pushPose();
@@ -90,6 +90,12 @@ public class LLWorldRender
 				}
 
 		matrices.popPose();
+	}
+
+	// vanilla's per-block spawn rule: excludes glass, leaves, slabs, light sources, etc.
+	private static boolean isValidSpawnSurface(net.minecraft.world.level.BlockGetter world, net.minecraft.core.BlockPos pos)
+	{
+		return world.getBlockState(pos).isValidSpawn(world, pos, net.minecraft.world.entity.EntityTypes.ZOMBIE);
 	}
 
 	private static boolean isTopSolid(net.minecraft.world.level.BlockGetter world, net.minecraft.core.BlockPos pos, net.minecraft.world.entity.Entity entity)
