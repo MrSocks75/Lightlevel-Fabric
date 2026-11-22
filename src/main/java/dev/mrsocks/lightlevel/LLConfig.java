@@ -42,6 +42,19 @@ public class LLConfig
 			colors[category.ordinal()] = category.defaultColor;
 	}
 
+	private static boolean useX;
+
+	// basic overlay only: draw an X instead of the block light number
+	public static boolean getUseX()
+	{
+		return useX;
+	}
+
+	public static void setUseX(boolean value)
+	{
+		useX = value;
+	}
+
 	public static int getColor(Category category)
 	{
 		return colors[category.ordinal()];
@@ -68,6 +81,8 @@ public class LLConfig
 			for (var category : Category.values())
 				if (json.has(category.id))
 					setColor(category, Integer.parseUnsignedInt(json.get(category.id).getAsString(), 16));
+			if (json.has("useX"))
+				useX = json.get("useX").getAsBoolean();
 		}
 		catch (IOException | RuntimeException e)
 		{
@@ -80,6 +95,7 @@ public class LLConfig
 		var json = new JsonObject();
 		for (var category : Category.values())
 			json.addProperty(category.id, toHex(getColor(category)));
+		json.addProperty("useX", useX);
 
 		try
 		{

@@ -2,9 +2,12 @@
   "key.category.lightlevel.category": "Light Level",
   "key.lightlevel.toggle": "Toggle",
   "key.lightlevel.settings": "Open Settings",
-  "lightlevel.config.title": "Light Level Colors",
+  "lightlevel.config.title": "Light Level Settings",
   "lightlevel.config.safe": "No spawns",
   "lightlevel.config.night": "Night only",
   "lightlevel.config.always": "Any time",
-  "lightlevel.config.reset": "Reset"
+  "lightlevel.config.reset": "Reset",
+  "lightlevel.config.basic_style": "Basic overlay: %s",
+  "lightlevel.config.style_numbers": "Numbers",
+  "lightlevel.config.style_x": "X"
 }

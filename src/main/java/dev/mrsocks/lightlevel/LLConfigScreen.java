@@ -30,6 +30,11 @@ public class LLConfigScreen extends Screen
 		return this.height / 2 - 40 + index * ROW_HEIGHT;
 	}
 
+	private static Component useXMessage()
+	{
+		return Component.translatable("lightlevel.config.basic_style", Component.translatable(LLConfig.getUseX() ? "lightlevel.config.style_x" : "lightlevel.config.style_numbers"));
+	}
+
 	@Override
 	protected void init()
 	{
@@ -56,8 +61,16 @@ public class LLConfigScreen extends Screen
 			                               .build());
 		}
 
+		this.addRenderableWidget(Button.builder(useXMessage(), button ->
+		                               {
+			                               LLConfig.setUseX(!LLConfig.getUseX());
+			                               button.setMessage(useXMessage());
+		                               })
+		                               .bounds(cx - 100, rowY(LLConfig.Category.values().length), 200, 20)
+		                               .build());
+
 		this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, button -> this.onClose())
-		                               .bounds(cx - 100, rowY(LLConfig.Category.values().length) + 12, 200, 20)
+		                               .bounds(cx - 100, rowY(LLConfig.Category.values().length) + ROW_HEIGHT + 12, 200, 20)
 		                               .build());
 	}
 

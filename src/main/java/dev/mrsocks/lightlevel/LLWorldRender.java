@@ -86,7 +86,7 @@ public class LLWorldRender
 						drawNumber(matrices, collector, f, "☀" + skyLight, color, 21, 23);
 					}
 					else
-						drawNumber(matrices, collector, f, String.valueOf(blockLight), color, 9, 8);
+						drawNumber(matrices, collector, f, LLConfig.getUseX() ? "X" : String.valueOf(blockLight), color, 9, 8);
 
 					matrices.popPose();
 				}
