@@ -14,7 +14,7 @@ LightLevel adds an in-game overlay that displays the light level on every block 
 | Key   | Action                                                       |
 |-------|--------------------------------------------------------------|
 | `F9`  | Cycle the overlay: off, basic, advanced, then back to off    |
-| `F10` | Open the color settings                                      |
+| `F10` | Open the settings screen (colors and basic overlay style)    |
 
 Both keys can be rebound in the Minecraft controls menu, under the "Light Level" category.
 
@@ -30,6 +30,8 @@ Basic mode displays the block light level reaching the block. The color represen
 
 The overlay only appears on blocks where Minecraft's own spawn rules allow a hostile mob to spawn. This excludes surfaces such as glass, leaves, slabs and light sources, as well as underwater spots, spaces without enough headroom, and spaces blocked by redstone components or similar blocks. Other spawn conditions, such as biome, difficulty or mob caps, are not taken into account.
 
+Basic mode can optionally draw an **X** instead of the number. See [Settings](#settings).
+
 ![An image showing a preview of Basic mode.](https://github.com/MrSocks75/Lightlevel-Fabric/blob/master/media/default.png)
 
 ### Advanced mode
@@ -38,15 +40,23 @@ Advanced mode uses the same colors and spawn rules as Basic mode, but each block
 
 ![An image showing a preview of Advanced mode.](https://github.com/MrSocks75/Lightlevel-Fabric/blob/master/media/extended.png)
 
-## Changing the colors
+## Settings
 
-Press `F10` to open the color settings. Each of the three colors (no spawns, night only, any time) has:
+Press `F10` to open the settings screen.
+
+### Colors
+
+Each of the three colors (no spawns, night only, any time) has:
 
 * a hex field (for example `FF8800`), which updates the overlay immediately when the value is valid,
 * a color preview,
 * a Reset button that restores the default color.
 
-Closing the screen with Done or `Esc` saves the colors to `config/lightlevel.json` in your Minecraft folder. You can also edit that file by hand.
+### Basic overlay style
+
+The "Basic overlay" button switches Basic mode between **Numbers** (the block light level) and **X** (an X mark in the same color). Advanced mode always shows numbers, regardless of this setting.
+
+Closing the screen with Done or `Esc` saves your settings to `config/lightlevel.json` in your Minecraft folder. You can also edit that file by hand.
 
 ## Building
 
